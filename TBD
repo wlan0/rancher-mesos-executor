@@ -1,0 +1,3 @@
+Script to automatically install all required utilities - KVM, mesosphere
+
+Upload formatted HDD image with label set to RANCHER_STATE

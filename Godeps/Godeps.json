@@ -1,0 +1,75 @@
+{
+	"ImportPath": "github.com/rancherio/rancher-mesos-executor",
+	"GoVersion": "go1.4.2",
+	"Deps": [
+		{
+			"ImportPath": "code.google.com/p/go-uuid/uuid",
+			"Comment": "null-15",
+			"Rev": "35bc42037350f0078e3c974c6ea690f1926603ab"
+		},
+		{
+			"ImportPath": "github.com/Sirupsen/logrus",
+			"Comment": "v0.6.4",
+			"Rev": "58f778a886b1e483dccc3b61085ccf347bf1a37e"
+		},
+		{
+			"ImportPath": "github.com/codegangsta/cli",
+			"Comment": "1.2.0-107-g942282e",
+			"Rev": "942282e931e8286aa802a30b01fa7e16befb50f3"
+		},
+		{
+			"ImportPath": "github.com/gogo/protobuf/proto",
+			"Rev": "64f27bf06efee53589314a6e5a4af34cdd85adf6"
+		},
+		{
+			"ImportPath": "github.com/golang/glog",
+			"Rev": "44145f04b68cf362d9c4df2182967c2275eaefed"
+		},
+		{
+			"ImportPath": "github.com/mesos/mesos-go/executor",
+			"Rev": "83b52d7f648d2a2fa91330123d348d4090be2aed"
+		},
+		{
+			"ImportPath": "github.com/mesos/mesos-go/mesosproto",
+			"Rev": "83b52d7f648d2a2fa91330123d348d4090be2aed"
+		},
+		{
+			"ImportPath": "github.com/mesos/mesos-go/mesosutil",
+			"Rev": "83b52d7f648d2a2fa91330123d348d4090be2aed"
+		},
+		{
+			"ImportPath": "github.com/mesos/mesos-go/messenger",
+			"Rev": "83b52d7f648d2a2fa91330123d348d4090be2aed"
+		},
+		{
+			"ImportPath": "github.com/mesos/mesos-go/upid",
+			"Rev": "83b52d7f648d2a2fa91330123d348d4090be2aed"
+		},
+		{
+			"ImportPath": "github.com/stretchr/objx",
+			"Rev": "cbeaeb16a013161a98496fad62933b1d21786672"
+		},
+		{
+			"ImportPath": "github.com/stretchr/testify/assert",
+			"Comment": "v1.0-17-g089c718",
+			"Rev": "089c7181b8c728499929ff09b62d3fdd8df8adff"
+		},
+		{
+			"ImportPath": "github.com/stretchr/testify/mock",
+			"Comment": "v1.0-17-g089c718",
+			"Rev": "089c7181b8c728499929ff09b62d3fdd8df8adff"
+		},
+		{
+			"ImportPath": "github.com/vishvananda/netlink",
+			"Rev": "27f66da7b458320fb368d1a60bf690eb44bfa54f"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/ssh",
+			"Rev": "56474dfd625f18739b46f075b138fd0133717491"
+		},
+		{
+			"ImportPath": "golang.org/x/net/context",
+			"Rev": "bb64f4dc73d4ab97978d5e1cb34515dcc570361b"
+		}
+	]
+}
