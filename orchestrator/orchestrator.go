@@ -5,13 +5,14 @@ type Orchestrator struct {
 	RosHDD    string
 	Iface     string
 	IfaceCIDR string
-	Cattle    string
-	Reg       string
-	Agent     string
+	ImageTag  string
+	RegUrl    string
+	ImageRepo string
+	HostUuid  string
 }
 
 func (o *Orchestrator) CreateAndBootstrap() error {
-	return startAndRegisterVM(o.RosImg, o.RosHDD, o.Iface, o.IfaceCIDR, o.Cattle, o.Reg, o.Agent)
+	return startAndRegisterVM(o.RosImg, o.RosHDD, o.Iface, o.IfaceCIDR, o.ImageTag, o.ImageRepo, o.RegUrl, o.HostUuid)
 }
 
 func (o *Orchestrator) DeleteVM() error {

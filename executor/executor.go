@@ -13,6 +13,13 @@ type RancherExecutor struct {
 	rosImg, iface, ifaceCIDR, rosHDD string
 }
 
+type TaskStruct struct {
+	RegistrationUrl string `json: "registration_url"`
+	ImageRepo       string `json: "image_repo"`
+	ImageTag        string `json: "image_tag"`
+	HostUuid        string `json: "host_uuid"`
+}
+
 func NewRancherExecutor(imagePath, iface, ifaceCIDR, rosHDD string) *RancherExecutor {
 	return &RancherExecutor{
 		rosImg:    imagePath,
@@ -38,16 +45,17 @@ func (e *RancherExecutor) LaunchTask(d executor.ExecutorDriver, task *mesosproto
 	taskId := task.TaskId
 	s := mesosproto.TaskState_TASK_RUNNING
 	d.SendStatusUpdate(&mesosproto.TaskStatus{TaskId: taskId, State: &s})
-	var data map[string]string
-	json.Unmarshal(task.Data, &data)
+	var taskStruct TaskStruct
+	json.Unmarshal(task.Data, &taskStruct)
 	orchestrator := &orchestrator.Orchestrator{
 		RosImg:    e.rosImg,
 		RosHDD:    e.rosHDD,
 		Iface:     e.iface,
 		IfaceCIDR: e.ifaceCIDR,
-		Cattle:    data["cattle_url"],
-		Reg:       data["registration_token"],
-		Agent:     data["agent_version"],
+		ImageRepo: taskStruct.ImageRepo,
+		RegUrl:    taskStruct.RegistrationUrl,
+		ImageTag:  taskStruct.ImageTag,
+		HostUuid:  taskStruct.HostUuid,
 	}
 	err := orchestrator.CreateAndBootstrap()
 	//TBD: Read message type and add supp for DELETE

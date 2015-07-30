@@ -20,7 +20,7 @@ var (
 	MAX_RETRIES = 15
 )
 
-func startAndRegisterVM(imagePath, rosHDD, iface, ifaceCIDR, cattleURL, registrationToken, agentVersion string) error {
+func startAndRegisterVM(imagePath, rosHDD, iface, ifaceCIDR, imageTag, imageRepo, registrationUrl, hostUuid string) error {
 	ip, err := startVM(imagePath, iface, ifaceCIDR, rosHDD)
 	if err != nil {
 		return err
@@ -42,7 +42,7 @@ func startAndRegisterVM(imagePath, rosHDD, iface, ifaceCIDR, cattleURL, registra
 	session.Stdout = &stdout
 	session.Stderr = &stderr
 
-	agentCommand := buildAgentCommand(cattleURL, registrationToken, agentVersion)
+	agentCommand := buildAgentCommand(imageTag, imageRepo, registrationUrl, hostUuid)
 	err = session.Run(agentCommand)
 
 	fmt.Println(stdout.String())
@@ -53,8 +53,8 @@ func startAndRegisterVM(imagePath, rosHDD, iface, ifaceCIDR, cattleURL, registra
 	return nil
 }
 
-func buildAgentCommand(cattleURL, registrationToken, agentVersion string) string {
-	return fmt.Sprintf("sudo docker run -d --privileged -v /var/run/docker.sock:/var/run/docker.sock rancher/agent:%s %s/v1/scripts/%s", "latest", cattleURL, registrationToken)
+func buildAgentCommand(imageTag, imageRepo, registrationUrl, hostUuid string) string {
+	return fmt.Sprintf("sudo docker run -d --privileged -v /var/run/docker.sock:/var/run/docker.sock -e CATTLE_PHYSICAL_HOST_UUID=%s %s:%s %s", hostUuid, imageRepo, imageTag, registrationUrl)
 }
 
 func startVM(image, iface, ifaceCIDR, HDD string) (net.IP, error) {
