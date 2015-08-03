@@ -15,7 +15,7 @@ import (
 
 var (
 	rancherOSURL = "http://github.com/rancher/os/releases/download/v0.3.3/rancheros.iso"
-	baseImageURL = ""
+	baseImageURL = "https://s3-us-west-1.amazonaws.com/wlan0/base-img.img"
 )
 
 func PerformPreChecksAndPrepareHost(workDir string) error {

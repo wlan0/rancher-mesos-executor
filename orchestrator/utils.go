@@ -20,7 +20,7 @@ var (
 	MAX_RETRIES = 15
 )
 
-func startAndRegisterVM(imagePath, rosHDD, iface, ifaceCIDR, imageTag, imageRepo, registrationUrl, hostUuid string) error {
+func startAndRegisterVM(imagePath, rosHDD, iface, ifaceCIDR, imageTag, imageRepo, registrationUrl, hostUuid, hostname string) error {
 	ip, err := startVM(imagePath, iface, ifaceCIDR, rosHDD)
 	if err != nil {
 		return err
@@ -43,7 +43,7 @@ func startAndRegisterVM(imagePath, rosHDD, iface, ifaceCIDR, imageTag, imageRepo
 	session.Stderr = &stderr
 
 	agentCommand := buildAgentCommand(imageTag, imageRepo, registrationUrl, hostUuid)
-	err = session.Run(agentCommand)
+	err = session.Run(fmt.Sprintf("sudo hostname %s && %s", hostname, agentCommand))
 
 	fmt.Println(stdout.String())
 	fmt.Println(stderr.String())

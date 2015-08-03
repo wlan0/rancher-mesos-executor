@@ -9,10 +9,11 @@ type Orchestrator struct {
 	RegUrl    string
 	ImageRepo string
 	HostUuid  string
+	Hostname  string
 }
 
 func (o *Orchestrator) CreateAndBootstrap() error {
-	return startAndRegisterVM(o.RosImg, o.RosHDD, o.Iface, o.IfaceCIDR, o.ImageTag, o.ImageRepo, o.RegUrl, o.HostUuid)
+	return startAndRegisterVM(o.RosImg, o.RosHDD, o.Iface, o.IfaceCIDR, o.ImageTag, o.ImageRepo, o.RegUrl, o.HostUuid, o.Hostname)
 }
 
 func (o *Orchestrator) DeleteVM() error {
