@@ -7,8 +7,8 @@ import (
 	log "github.com/Sirupsen/logrus"
 	"github.com/codegangsta/cli"
 	"github.com/mesos/mesos-go/executor"
-	rancher_mesos "github.com/rancherio/rancher-mesos-executor/executor"
-	"github.com/rancherio/rancher-mesos-executor/utils"
+	rancher_mesos "github.com/rancher/rancher-mesos-executor/executor"
+	"github.com/rancher/rancher-mesos-executor/utils"
 )
 
 var (

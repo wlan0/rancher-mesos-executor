@@ -46,6 +46,14 @@
 			"Rev": "83b52d7f648d2a2fa91330123d348d4090be2aed"
 		},
 		{
+			"ImportPath": "github.com/rancher/rancher-mesos-executor/executor",
+			"Rev": "8d24b995e0ffadfc851c71c654576b8a693b7bc2"
+		},
+		{
+			"ImportPath": "github.com/rancher/rancher-mesos-executor/utils",
+			"Rev": "8d24b995e0ffadfc851c71c654576b8a693b7bc2"
+		},
+		{
 			"ImportPath": "github.com/stretchr/objx",
 			"Rev": "cbeaeb16a013161a98496fad62933b1d21786672"
 		},

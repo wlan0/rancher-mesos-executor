@@ -6,7 +6,7 @@ import (
 	log "github.com/Sirupsen/logrus"
 	"github.com/mesos/mesos-go/executor"
 	"github.com/mesos/mesos-go/mesosproto"
-	"github.com/rancherio/rancher-mesos-executor/orchestrator"
+	"github.com/rancher/rancher-mesos-executor/orchestrator"
 )
 
 type RancherExecutor struct {
